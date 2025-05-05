@@ -1,0 +1,178 @@
+<! DOCTYPE html>
+<html lang="pt-br">
+<cabeça>
+ <meta charset="UTF-8" /> 
+ <meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
+    <title>Jogo: Plantas Medicinais e Conservação</title>  
+ <link rel="folha de estilo" href="style.css" /> 
+<cabeça>
+<Corpo>
+ <divid="início"> 
+      <h1>Jogo de Perguntas</h1>  
+      <p>Digite seu nome e curso para começar:</p>  
+ <tipo de entrada="texto" id="nome" placeholder="Seu nome"> 
+ <input type="text" id="curso" placeholder="Seu curso"> 
+      <button onclick="iniciarJogo()">Começar</button>  
+ </div> 
+
+ <div id="jogo" style="display: none;"> 
+ <h2 id="pergunta"></a2> 
+ <divid="opcos"></div> 
+      <p>Categoria: <span id="categoria"></span></p>  
+      <p>Pontuação: <span id="pontuacao">0</span></p>  
+      <button onclick="reiniciarJogo()">Reiniciar</button>  
+ </div> 
+
+ <div id="fim" style="display: none;"> 
+      <h2>PARABÉNS VOCÊ GANHOU!</h2>  
+      <p>PEGUE O SEU BRINDE</p>  
+      <button onclick="reiniciarJogo()">Jogar Novamente</button>  
+ </div> 
+
+ <script src="script.js"></script> 
+"Corpo"
+<html>
+Corpo {
+    font-family: Arial, sans-serif;  
+    text-align: center;  
+ Margem: 0; 
+ preenchimento: 20px; 
+ fundo: #f0fff0; 
+}
+
+Entrada {
+ preenchimento: 10px; 
+  Margem: 10px;  
+ Largura: 200px; 
+}
+
+Botão {
+  preenchimento: 10px 20px;  
+ fundo: #2e8b57; 
+ cor: branco; 
+ Fronteira: nenhuma; 
+ cursor: ponteiro; 
+ Margem: 10px; 
+}
+
+Botão:Hover {
+ fundo: #256b45; 
+}
+
+#jogo, #fim {
+  Margem-topo: 30px;  
+}
+
+Botão #opcos {
+   Exibição: bloco;   
+  Margem: 10px auto;  
+ Largura: 80%; 
+}
+let perguntas = [
+   { 
+     pergunta: "Qual dessas plantas é conhecida por ajudar na digestão?", 
+     opcoes: ["Camomila", "Alecrim", "Espinheira-santa", "Hortelã"], 
+     resposta: "Espinheira-santa", 
+     categoria: "Plantas Medicinais" 
+   }, 
+   { 
+     pergunta: "O que é biopirataria?", 
+ Opções: [ 
+ "Uso de pesticidas ilegais", 
+       "Roubo de recursos naturais e conhecimentos tradicionais", 
+       "Contrabando de plantas ornamentais", 
+       "Cultivo não autorizado de soja" 
+ ], 
+     resposta: "Roubo de recursos naturais e conhecimentos tradicionais", 
+     categoria: "Biopirataria" 
+   }, 
+   { 
+     pergunta: "Qual o papel do farmacêutico nas plantas medicinais?", 
+ Opções: [ 
+       "Cuidar de jardins", 
+       "Preparar receitas médicas", 
+       "Orientar o uso seguro de plantas e fitoterápicos", 
+       "Cultivar plantas para exportação" 
+ ], 
+     resposta: "Orientar o uso seguro de plantas e fitoterápicos", 
+     categoria: "Papel do Farmacêutico" 
+   }, 
+   { 
+     pergunta: "Qual prática ajuda na conservação ambiental?", 
+     opcoes: ["Desmatamento", "Agricultura intensiva", "Reciclagem", "Uso de agrotóxicos"], 
+     resposta: "Reciclagem", 
+     categoria: "Conservação Ambiental" 
+   }, 
+   { 
+     pergunta: "Qual planta é famosa por aliviar queimaduras?", 
+     opcoes: ["Alho", "Aloe vera", "Guaraná", "Babosa"], 
+     resposta: "Babosa", 
+      categoria: "Plantas Medicinais"  
+    }  
+];
+
+Deixe Pontuacao = 0;
+let perguntasRespondidas = 0;
+let perguntasEmbaralhadas = [];
+let nomeJogador = "", cursoJogador = "";
+
+função iniciarJogo() {
+    nomeJogador = document.getElementById("nome").value.trim();  
+ cursoJogador = document.getElementById("curso").value.trim(); 
+    if (!nomeJogador || !cursoJogador) {  
+      alert("Digite seu nome e curso!");  
+   Retorno;   
+     }   
+
+      embaralharPerguntas();    
+ document.getElementById("inicio").style.display = "nenhum"; 
+ document.getElementById("jogo").style.display = "bloqueio"; 
+    Pontuação = 0;    
+      perguntasRespondidas = 0;    
+      exibirPergunta();    
+}
+
+function embaralharPerguntas() {
+      perguntasEmbaralhadas = [...perguntas].sort(() => 0.5 - Math.random());    
+}
+
+function exibirPergunta() {{
+      if (perguntasRespondidas >= perguntasEmbaralhadas.length) {    
+ document.getElementById("jogo").style.display = "nenhum"; 
+ document.getElementById("fim").style.display = "bloqueio"; 
+        console.log(`Jogador: ${nomeJogador} - Curso: ${cursoJogador} - Pontuação: ${pontuacao}`);    
+    Retorno;    
+      }    
+
+      const atual = perguntasEmbaralhadas[perguntasRespondidas];    
+      document.getElementById("pergunta").textContent = atual.pergunta;    
+      document.getElementById("categoria").textContent = atual.categoria;    
+      document.getElementById("pontuacao").textContent = pontuacao;    
+
+ constróiDiv = document.getElementByid("opcos"); 
+        {      
+       atual.opcoes.forEach    (  Opção => {    
+  constbtn = documento. criar elemento("botão");  
+    btn.textConteúdo = opcao;    
+         categoria: "Plantas Medicinais"     
+       },     
+       {     
+}
+
+function verificarResposta(escolhida, correta) {
+           "Roubo de recursos naturais e conhecimentos tradicionais",     
+           "Contrabando de plantas ornamentais",     
+           "Cultivo não autorizado de soja"     
+        exibirPergunta();    
+    } mais {    
+         categoria: "Biopirataria"     
+    Reiniciar o Jogo();    
+      } {    
+}
+
+  função reiniciarJogo()    
+ document.getElementById("inicio").style.display = "bloqueio"; 
+ document.getElementById("jogo").style.display = "nenhum"; 
+ document.getElementById("fim").style.display = "nenhum"; 
+    document.getElementById("pontuacao").textConteúdo = "0";    
+}
